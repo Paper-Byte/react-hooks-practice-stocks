@@ -6,7 +6,9 @@ import SearchBar from './SearchBar';
 function MainContainer() {
   const [stocksList, setStocksList] = useState([]);
   const [ownedStocks, setOwnedStocks] = useState([]);
-  const [sortStatus, setSortStatus] = useState([]);
+  const [sortAlphabeticalOrder, setSortAlphabeticalOrder] =
+    useState('false');
+  const [sortPriceOrder, setSortPriceOrder] = useState('false');
   const [categoryFilter, setCategoryFilter] = useState('Tech');
 
   useEffect(() => {
@@ -34,7 +36,7 @@ function MainContainer() {
       });
       setOwnedStocks(newStockList);
     } else {
-      return setOwnedStocks([...ownedStocks, stockToMove]);
+      setOwnedStocks([...ownedStocks, stockToMove]);
     }
   };
 
