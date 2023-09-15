@@ -18,14 +18,23 @@ function MainContainer() {
     fetchStocks();
   }, []);
 
-  const handleStockMove = (stockToMove) => {
-    if (ownedStocks.includes(stockToMove)) {
+  const handleStockMove = (stockToMove, id) => {
+    // if (ownedStocks.includes(stockToMove)) {
+    //   const newStockList = ownedStocks.filter((stock) => {
+    //     return stock.name !== stockToMove.name;
+    //   });
+    //   setOwnedStocks(newStockList);
+    // } else {
+    //   setOwnedStocks([...ownedStocks, stockToMove]);
+    // }
+
+    if (id === 'stockOwned') {
       const newStockList = ownedStocks.filter((stock) => {
         return stock.name !== stockToMove.name;
       });
       setOwnedStocks(newStockList);
     } else {
-      setOwnedStocks([...ownedStocks, stockToMove]);
+      return setOwnedStocks([...ownedStocks, stockToMove]);
     }
   };
 

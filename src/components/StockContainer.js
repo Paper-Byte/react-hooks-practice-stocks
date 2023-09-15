@@ -8,6 +8,7 @@ function StockContainer({ stocksList, handleStockMove }) {
       {stocksList.map((stock) => {
         return (
           <Stock
+            id="stockNotOwned"
             handleStockMove={handleStockMove}
             key={stock.name}
             stock={stock}
