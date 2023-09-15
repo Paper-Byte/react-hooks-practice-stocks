@@ -1,13 +1,19 @@
-import React from "react";
-import Stock from "./Stock";
+import React from 'react';
+import Stock from './Stock';
 
-function PortfolioContainer() {
+function PortfolioContainer({ ownedStocks, handleStockMove }) {
   return (
     <div>
       <h2>My Portfolio</h2>
-      {
-        //render your portfolio stocks here
-      }
+      {ownedStocks.map((stock) => {
+        return (
+          <Stock
+            stock={stock}
+            handleStockMove={handleStockMove}
+            key={stock.name}
+          />
+        );
+      })}
     </div>
   );
 }
