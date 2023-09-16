@@ -5,10 +5,10 @@ function PortfolioContainer({ ownedStocks, handleStockMove }) {
   return (
     <div>
       <h2>My Portfolio</h2>
-      {ownedStocks.map((stock, index) => {
+      {ownedStocks.map((stock) => {
         return (
           <Stock
-            id="stockOwned"
+            location="stockOwned"
             stock={stock}
             handleStockMove={handleStockMove}
             key={stock.name}

@@ -1,14 +1,25 @@
 import React from 'react';
 import Stock from './Stock';
 
-function StockContainer({ stocksList, handleStockMove }) {
+const StockContainer = ({
+  stocksList,
+  handleStockMove,
+  categoryFilter,
+}) => {
+  let stocksToDisplay = [...stocksList];
+
+  if (categoryFilter !== 'All') {
+    stocksToDisplay = stocksList.filter((stock) => {
+      return stock.type === categoryFilter;
+    });
+  }
   return (
     <div>
       <h2>Stocks</h2>
-      {stocksList.map((stock) => {
+      {stocksToDisplay.map((stock) => {
         return (
           <Stock
-            id="stockNotOwned"
+            location="stockNotOwned"
             handleStockMove={handleStockMove}
             key={stock.name}
             stock={stock}
@@ -17,6 +28,6 @@ function StockContainer({ stocksList, handleStockMove }) {
       })}
     </div>
   );
-}
+};
 
 export default StockContainer;

@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react';
 
-function SearchBar() {
+function SearchBar({
+  handleSortOption,
+  handleCategoryFilter,
+  sortOrder,
+}) {
   return (
     <div>
       <strong>Sort by:</strong>
@@ -8,9 +12,9 @@ function SearchBar() {
         <input
           type="radio"
           value="Alphabetically"
-          name="sort"
-          checked={null}
-          onChange={null}
+          name="alphabetically"
+          checked={sortOrder === 'alphabetically' ? true : null}
+          onClick={handleSortOption}
         />
         Alphabetically
       </label>
@@ -18,16 +22,17 @@ function SearchBar() {
         <input
           type="radio"
           value="Price"
-          name="sort"
-          checked={null}
-          onChange={null}
+          name="price"
+          checked={sortOrder === 'price' ? true : null}
+          onClick={handleSortOption}
         />
         Price
       </label>
       <br />
       <label>
         <strong>Filter:</strong>
-        <select onChange={null}>
+        <select onChange={handleCategoryFilter}>
+          <option value="All">All</option>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>
           <option value="Finance">Finance</option>
